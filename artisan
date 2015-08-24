@@ -27,9 +27,11 @@ $app = require __DIR__.'/bootstrap/app.php';
 | or another output device for the developers. Here goes nothing!
 |
 */
+$app->useStoragePath('/tmp/artisonly');
 
 $kernel = $app->make(
     'Illuminate\Contracts\Console\Kernel'
 );
+
 
 exit($kernel->handle(new ArgvInput, new ConsoleOutput));

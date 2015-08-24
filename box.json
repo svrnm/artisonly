@@ -1,0 +1,33 @@
+{
+	"directories": [
+		"bootstrap",
+		"vendor/composer",
+		"vendor/danielstjules/stringy",
+		"vendor/illuminate/support",
+		"vendor/symfony/var-dumper",
+		"vendor/nikic/fast-route",
+		"vendor/laravel/lumen-framework",
+		"vendor/illuminate/container",
+		"vendor/illuminate/contracts",
+		"vendor/symfony/http-kernel",
+		"app",
+		"vendor/symfony/debug",
+		"vendor/monolog/monolog",
+		"vendor/psr/log",
+		"vendor/symfony/console",
+		"vendor/illuminate/config",
+		"vendor/illuminate/cache",
+		"vendor/illuminate/events",
+		"vendor/illuminate/http",
+		"vendor/symfony/http-foundation",
+		"vendor/illuminate/console",
+		"vendor/illuminate/filesystem",
+		"vendor/illuminate/pagination"
+	],
+	"files": [
+		"vendor/autoload.php"
+	],
+	"main": "artisan",
+	"output": "lumen.phar",
+	"stub": true
+}

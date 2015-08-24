@@ -16,15 +16,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/"
-        },
-        "classmap": [
-            "database/"
-        ]
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/"
-        ]
+        }
     },
     "config": {
         "preferred-install": "dist"
