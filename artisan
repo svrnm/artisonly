@@ -33,5 +33,14 @@ $kernel = $app->make(
     'Illuminate\Contracts\Console\Kernel'
 );
 
+/*
+ * Modify the command line arguments if the called file is a symlink. 
+ * This allows to call sub-commands, directly, e.g. a symlink "inspire"
+ * will call "artisan inspire" directly
+ */
+if(!in_array(basename($_SERVER['argv'][0]), ['artisan', 'artisan.phar'])) {
+	array_unshift($_SERVER['argv'], 'artisan');
+	$_SERVER['argv'][1] = basename($_SERVER['argv'][1]); 
+}
 
 exit($kernel->handle(new ArgvInput, new ConsoleOutput));
