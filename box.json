@@ -18,11 +18,8 @@
 		"vendor/illuminate/config",
 		"vendor/illuminate/cache",
 		"vendor/illuminate/events",
-		"vendor/illuminate/http",
-		"vendor/symfony/http-foundation",
 		"vendor/illuminate/console",
-		"vendor/illuminate/filesystem",
-		"vendor/illuminate/pagination"
+		"vendor/illuminate/filesystem"
 	],
 	"files": [
 		"vendor/autoload.php"
