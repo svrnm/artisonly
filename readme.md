@@ -1,21 +1,71 @@
-## Lumen PHP Framework
+# Artisan + Phar = Artisonly (Standalone Commandline Toolbox)
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+You can use [box2](https://github.com/box-project/box2/) and this modified version of laravel's [lumen](http://lumen.laravel.com/) to pack the artisan file into a standalone command line tool(box) that you can put into your shell's search path. So you can call ***inspire*** wherever you are!
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Installation
 
-## Official Documentation
+1. clone this project:
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+```
+# https://github.com/svrnm/artisonly artisonly
+```
 
-## Security Vulnerabilities
+2. Call composer from within the newly created directory:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+```
+# composer update
+```
 
-### License
+3. If not available, install [box2](https://github.com/box-project/box2/) globally:
 
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+```
+composer global require kherge/box --prefer-source
+```
+
+4. Create the ```artisan.phar``` binary:
+
+```
+# box build
+```
+
+5. If the build process succeeds, test if you can call inspire:
+
+```
+# ./artisan.phar inspire
+```
+
+6. Finally, if you like you can install it globally and call inspire:
+
+```
+# sudo cp ./artisan.phar /usr/local/bin/artisonly
+# sudo ln /usr/local/bin/artisan.phar /usr/local/bin/inspire
+# inspire
+```
+
+
+## Usage
+
+By default the (modified) artisan command does only provide a simple version of ```inspire```. Unlikey laravel there is (currently) no convenient ```php artisan make:console``` command, but you can just copy (or rename) the inspire example:
+
+```
+# cp app/Console/Commands/Inspire.php app/Console/Commands/HelloWorld.php
+```
+
+Edit this file as you like and provide a unique signature:
+
+```php
+protected $signature = 'hello-world';
+```
+Next you can build the ```artisan.phar``` using ```box build``` and if you like you can install your tools globally:
+
+```
+# sudo cp ./artisan.phar /usr/local/bin/artisonly
+# sudo ln /usr/local/bin/artisan.phar /usr/local/bin/hello-world
+# hello-world
+```
+
+
+
+## License
+
+This is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
